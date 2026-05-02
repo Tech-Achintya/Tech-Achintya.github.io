@@ -1,0 +1,4 @@
+The Real-Time Chat Application is a full-stack system created by utilizing Spring Boot and WebSockets to facilitate immediate messaging between users. Different from traditional HTTP-based communication, the application uses continuously open WebSocket connections - allowing a two-way flow of data between client and server. This really makes sure messages get delivered right away - without needing numerous requests all over again. The back end has been set up using Spring Boot's WebSocket support (STOMP protocol), whereas the front end sets up a connection and subscribes to message channels for current updates in real time. Some of its key features include real-time messaging, support for numerous users, and very efficient message broadcasting. The entire system has been created with very low latency - so that communication runs very smoothly indeed.
+Detail Analysis:
+frontend : https://github.com/Tech-Achintya/real-time-chat-App
+

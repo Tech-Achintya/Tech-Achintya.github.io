@@ -1,0 +1,5 @@
+This project is a college discovery platform - created to simplify the university's research process for students all over again. Built using robust Node. js and Express with TypeScript, our backend provides a high-speed API for looking up, filtering, and comparing colleges by their locations, courses, and pricing structures. Some key features include our College Predictor tool - which maps your test scores to possible admissions chances - and an easy-to-use comparison engine. Our design structure follows a professional services-controller pattern, really including production-grade security (Helmet), Gzip compression, and multi-level rate limiting. Finally, we have specialized CORS-free endpoints that will enable really smooth integration and very frequent polling from some external monitoring websites.
+Detail Analysis:
+frontend : https://github.com/Tech-Achintya/College-Finder-frontend
+backend : https://github.com/Tech-Achintya/collegeFinder_backend
+
