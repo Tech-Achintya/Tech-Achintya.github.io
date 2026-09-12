@@ -1,0 +1,12 @@
+Voting Poll Platform
+--------------------
+A digital voting and polling web application designed to facilitate secure and seamless opinion gathering. This project represents a robust full-stack integration for handling dynamic data inputs.
+
+Key Features (The Specs):
+• Interactive Polling: Allows users to participate in dynamic polls with an intuitive, component-driven React user interface.
+• Backend Reliability: Powered by Spring Boot to ensure secure vote casting, state management, and reliable data persistence.
+• RESTful Architecture: Built on a clean API structure for smooth communication between the client and server.
+
+Tech Stack (The Gear):
+• Frontend: React
+• Backend: Java, Spring Boot

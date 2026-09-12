@@ -1,0 +1,14 @@
+Collaborative Workspace Platform
+--------------------------------
+A real-time collaborative workspace platform engineered to allow multiple developers to simultaneously edit code or text in a shared environment. This is a high-fidelity sync engine built for seamless co-creation.
+
+Key Features (The Specs):
+• Real-Time Collaboration: Powered by Yjs (a robust CRDT implementation) to guarantee smooth, conflict-free document syncing across multiple concurrent clients.
+• Rich Editing Experience: Integrates Monaco Editor to provide a full-featured, VS Code-like coding environment directly in the browser.
+• Live Synchronization & Low Latency: Utilizes Spring WebSockets and STOMP for high-frequency edit syncing. Backed by Server-Sent Events (SSE) for reliable, low-latency workspace updates.
+• Secure Authentication: Implements OAuth2 via Spring Security to manage user identities and protect workspace access.
+• Workspace Management: Complete CRUD functionality for workspaces, including the ability to toggle visibility between public and private modes.
+
+Tech Stack (The Gear):
+• Frontend: React (v19), Vite, Yjs (y-monaco, y-protocols), Monaco Editor, STOMP.js
+• Backend: Java, Spring Boot, Spring Security (OAuth2), WebSockets, Server-Sent Events (SSE)

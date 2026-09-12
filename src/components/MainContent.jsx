@@ -3,12 +3,13 @@ import './MainContent.css';
 
 const softwareProjects = [
   {
-    title: "Food Rescue",
-    tech: "React • Node.js • PostgreSQL",
+    title: "Collaborative Workspace",
+    tech: "Next.js • React • WebSockets",
     year: "'24",
-    image: "/assets/food_rescue.png",
+    image: "/assets/workspace.png",
     color: "var(--accent-secondary)",
-    url: "https://food-rescue-frontend-fdqq.vercel.app"
+    url: "https://workspace-collaborative.vercel.app",
+    github: "https://github.com/Tech-Achintya/collaborative-editor"
   },
   {
     title: "Eexchange",
@@ -16,7 +17,17 @@ const softwareProjects = [
     year: "'24",
     image: "/assets/exchange.png",
     color: "var(--accent-secondary)",
-    url: "https://frontend-eexchange.vercel.app"
+    url: "https://frontend-eexchange.vercel.app",
+    github: "https://github.com/Tech-Achintya/Eexchange"
+  },
+  {
+    title: "Food Rescue",
+    tech: "React • Node.js • PostgreSQL",
+    year: "'24",
+    image: "/assets/food_rescue.png",
+    color: "var(--accent-secondary)",
+    url: "https://food-rescue-frontend-fdqq.vercel.app",
+    github: "https://github.com/Tech-Achintya/Food_rescue"
   },
   {
     title: "College-Finder",
@@ -24,14 +35,8 @@ const softwareProjects = [
     year: "'24",
     image: "/assets/college_finder.png",
     color: "var(--accent-secondary)",
-    url: "https://college-f-inder-frontend.vercel.app"
-  },
-  {
-    title: "Real-Time Chat App",
-    tech: "Spring Boot • WebSockets",
-    year: "'24",
-    image: "/assets/chat_app.png",
-    color: "var(--accent-secondary)"
+    url: "https://college-f-inder-frontend.vercel.app",
+    github: "https://github.com/Tech-Achintya/collegeFinder_backend"
   },
   {
     title: "Shopify UI/UX",
@@ -40,18 +45,25 @@ const softwareProjects = [
     image: "/assets/shopify_ux.png",
     color: "var(--accent-secondary)",
     url: "https://shopifywithme.netlify.app"
+  },
+  {
+    title: "Voting Poll",
+    tech: "React • Spring Boot",
+    year: "'24",
+    image: "/assets/voting_poll.png",
+    color: "var(--accent-secondary)",
+    github: "https://github.com/Tech-Achintya/voting-poll"
+  },
+  {
+    title: "Real-Time Chat App",
+    tech: "Spring Boot • WebSockets",
+    year: "'24",
+    image: "/assets/chat_app.png",
+    color: "var(--accent-secondary)",
+    github: "https://github.com/Tech-Achintya/real-time-chat-App"
   }
 ];
 
-const hardwareProjects = [
-  {
-    title: "Smart Extension Board",
-    tech: "IoT • NodeMCU • ESP8266",
-    year: "'23",
-    image: "/assets/iot.png",
-    color: "var(--accent-hardware)"
-  }
-];
 
 
 
@@ -147,7 +159,22 @@ const MainContent = () => {
                       />
                     </div>
                   ) : (
-                    <img src={proj.image} alt={proj.title} />
+                    <div className="unreleased-placeholder" style={{ 
+                      height: '100%', 
+                      display: 'flex', 
+                      flexDirection: 'column', 
+                      alignItems: 'center', 
+                      justifyContent: 'center',
+                      background: 'linear-gradient(135deg, #1f1f1f, #0a0a0a)',
+                      color: 'var(--text-primary)',
+                      textAlign: 'center',
+                      padding: '1rem',
+                      border: '1px solid rgba(255,255,255,0.1)'
+                    }}>
+                      <span style={{ fontSize: '3rem', marginBottom: '0.5rem', filter: 'drop-shadow(0 0 5px rgba(255,255,255,0.1))' }}>📼</span>
+                      <h4 style={{ margin: 0, fontFamily: 'monospace', fontSize: '1rem', textTransform: 'uppercase', letterSpacing: '1px', color: proj.color }}>Studio Master</h4>
+                      <p style={{ margin: '0.5rem 0 0', fontSize: '0.8rem', opacity: 0.7 }}>{proj.title}</p>
+                    </div>
                   )}
                 </div>
                 <div className="vinyl-record"></div>
@@ -166,6 +193,11 @@ const MainContent = () => {
                         <span className="action-icon">∅</span> Unreleased
                       </span>
                     )}
+                    {proj.github && (
+                      <a href={proj.github} target="_blank" rel="noopener noreferrer" className="action-btn">
+                        <span className="action-icon">🐙</span> Repo
+                      </a>
+                    )}
                     <button
                       className="action-btn"
                       onClick={() => setActiveNotes(proj.title)}
@@ -179,36 +211,7 @@ const MainContent = () => {
           </div>
         </section>
 
-        <section className="project-group hardware-group">
-          <h2 className="section-title">The Analog Lab <small>(Hardware Projects)</small></h2>
-          <div className="vinyl-grid">
-            {hardwareProjects.map((proj, i) => (
-              <div key={i} className="vinyl-card" style={{ '--accent': proj.color }}>
-                <div className="vinyl-sleeve">
-                  <img src={proj.image} alt={proj.title} />
-                </div>
-                <div className="vinyl-record"></div>
-                <div className="vinyl-info">
-                  <h3>{proj.title}</h3>
-                  <p>{proj.tech}</p>
-                  <span className="year">{proj.year}</span>
 
-                  <div className="project-actions">
-                    <span className="action-link disabled">
-                      <span className="action-icon">🔌</span> Live Set
-                    </span>
-                    <button
-                      className="action-btn"
-                      onClick={() => setActiveNotes(proj.title)}
-                    >
-                      <span className="action-icon">📝</span> Liner Notes
-                    </button>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
       </div>
 
       <section className="tour-dates">
