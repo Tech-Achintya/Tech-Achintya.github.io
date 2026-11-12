@@ -25,8 +25,11 @@ Deployment is automated by `.github/workflows/deploy.yml`:
 
 1. Push to `main` (or run the workflow manually).
 2. GitHub Actions installs dependencies with `npm ci`, builds with `npm run build`,
-   copies the root `CNAME` file into `dist/`, and publishes the artifact with the
-   official GitHub Pages actions.
+   and publishes the generated `dist/` directory with the official GitHub Pages
+   actions.
+
+Vite copies `public/CNAME` into `dist/CNAME` during the build, so the custom
+domain is part of every deployed artifact.
 
 ### One-time repository setup
 
