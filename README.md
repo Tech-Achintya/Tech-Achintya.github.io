@@ -1,20 +1,37 @@
-<<<<<<< HEAD
-# React + Vite
+# Achintya Srivastava — Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Personal portfolio built with React 19 and Vite. Published to GitHub Pages at
+[custom domain](https://achinty.me) from the `Tech-Achintya.github.io` repository.
 
-Currently, two official plugins are available:
+## Local development
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+```bash
+npm install
+npm run dev
+```
 
-## React Compiler
+## Production build
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+```bash
+npm run build
+npm run preview
+```
 
-## Expanding the ESLint configuration
+The production output is written to `dist/`.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
-=======
-# Tech-Achintya.github.io
->>>>>>> 7b32633f7c23c21a4bdd97d362e9bbdde1316b4c
+## Deployment
+
+Deployment is automated by `.github/workflows/deploy.yml`:
+
+1. Push to `main` (or run the workflow manually).
+2. GitHub Actions installs dependencies with `npm ci`, builds with `npm run build`,
+   copies the root `CNAME` file into `dist/`, and publishes the artifact with the
+   official GitHub Pages actions.
+
+### One-time repository setup
+
+In **Settings → Pages → Build and deployment**, set **Source** to
+**GitHub Actions**. The custom domain is `achinty.me` (see `CNAME`).
+
+The site is a single-page app with in-page anchors only; it does not use
+client-side routing, so no `404.html` fallback is required.

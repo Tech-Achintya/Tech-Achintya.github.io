@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import './MainContent.css';
 
 const softwareProjects = [
@@ -91,21 +91,44 @@ const MainContent = () => {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    if (activeNotes) {
-      setLoading(true);
-      const fileName = activeNotes.toLowerCase().replace(/\s+/g, '-');
-      fetch(`/liner-notes/${fileName}.txt`)
-        .then(res => res.text())
-        .then(text => {
-          setNoteContent(text);
-          setLoading(false);
-        })
-        .catch(() => {
-          setNoteContent('Error loading session notes.');
-          setLoading(false);
-        });
-    }
+    if (!activeNotes) return;
+
+    // Match the file names in public/liner-notes (e.g. "College-Finder" ->
+    // "college-finder", "Shopify UI/UX" -> "shopify-ui-ux"), and resolve them
+    // from Vite's base URL so the fetch keeps working if the base ever changes.
+    const fileName = activeNotes
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, '-')
+      .replace(/^-+|-+$/g, '');
+    const notesUrl = `${import.meta.env.BASE_URL}liner-notes/${fileName}.txt`;
+    let cancelled = false;
+
+    fetch(notesUrl)
+      .then((res) => {
+        if (!res.ok) throw new Error(`Notes request failed: ${res.status}`);
+        return res.text();
+      })
+      .then((text) => {
+        if (cancelled) return;
+        setNoteContent(text);
+        setLoading(false);
+      })
+      .catch(() => {
+        if (cancelled) return;
+        setNoteContent('Session notes are not available for this record yet.');
+        setLoading(false);
+      });
+
+    return () => {
+      cancelled = true;
+    };
   }, [activeNotes]);
+
+  const openNotes = (title) => {
+    setNoteContent('');
+    setLoading(true);
+    setActiveNotes(title);
+  };
 
   const closeNotes = () => setActiveNotes(null);
 
@@ -200,7 +223,7 @@ const MainContent = () => {
                     )}
                     <button
                       className="action-btn"
-                      onClick={() => setActiveNotes(proj.title)}
+                      onClick={() => openNotes(proj.title)}
                     >
                       <span className="action-icon">📝</span> Liner Notes
                     </button>
