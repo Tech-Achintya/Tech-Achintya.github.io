@@ -20,12 +20,16 @@ const Sidebar = () => {
           <span className="num">01</span>
           <span className="text">Discography</span>
         </a>
-        <a href="#skills" className="nav-link">
+        <a href="#languages" className="nav-link">
           <span className="num">02</span>
+          <span className="text">Languages</span>
+        </a>
+        <a href="#skills" className="nav-link">
+          <span className="num">03</span>
           <span className="text">Equipment</span>
         </a>
         <a href="#about" className="nav-link">
-          <span className="num">03</span>
+          <span className="num">04</span>
           <span className="text">Artist Bio</span>
         </a>
       </nav>

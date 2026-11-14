@@ -17,7 +17,7 @@ const softwareProjects = [
     year: "'24",
     image: "/assets/exchange.png",
     color: "var(--accent-secondary)",
-    url: "https://frontend-eexchange.vercel.app",
+    url: "https://eexchange.app.achinty.me",
     github: "https://github.com/Tech-Achintya/Eexchange"
   },
   {
@@ -67,15 +67,54 @@ const softwareProjects = [
 
 
 
-const skills = [
-  { name: "Java", level: "80%" },
-  { name: "React.js", level: "90%" },
-  { name: "Node.js", level: "85%" },
-  { name: "Spring Boot", level: "75%" },
-  { name: "MySQL", level: "80%" },
-  { name: "DS & Algorithms", level: "95%" },
-  { name: "C++ ", level: "75%" },
+const languages = [
+  { name: "Java" },
+  { name: "JavaScript" },
+  { name: "TypeScript" },
+  { name: "C" },
+  { name: "C++" },
+  { name: "SQL" },
 ];
+
+const tools = [
+  { name: "React.js" },
+  { name: "Next.js" },
+  { name: "Node.js" },
+  { name: "Spring Boot" },
+  { name: "AWS S3" },
+  { name: "MongoDB" },
+  { name: "PostgreSQL" },
+  { name: "MySQL" },
+  { name: "WebSockets" },
+  { name: "JWT" },
+  { name: "Git & GitHub" },
+  { name: "DSA" },
+];
+
+const pedalColors = ['#ff5f5f', '#4d96ff', '#ffb830', '#1DB954', '#b91d73', '#1db9b9'];
+
+const PedalRack = ({ items }) => (
+  <div className="pedal-rack">
+    {items.map((item, i) => (
+      <div key={i} className="pedal" style={{ '--pedal-color': pedalColors[i % pedalColors.length] }}>
+        <div className="pedal-head">
+          <span className="pedal-type">{i % 2 === 0 ? 'Fuzz' : 'Delay'}</span>
+          <div className="status-light"></div>
+        </div>
+        <div className="pedal-body">
+          <div className="pedal-knob-row">
+            <div className="tiny-knob"></div>
+            <div className="tiny-knob"></div>
+          </div>
+          <h3 className="pedal-name">{item.name}</h3>
+        </div>
+        <div className="pedal-foot">
+          <div className="stomp-switch"></div>
+        </div>
+      </div>
+    ))}
+  </div>
+);
 
 const venues = [
   { name: "GitHub Stadium", url: "https://github.com/Tech-Achintya", icon: "🐙", stats: "Open Source Residency" },
@@ -253,28 +292,14 @@ const MainContent = () => {
         </div>
       </section>
 
+      <section id="languages" className="skills-patchbay">
+        <h2 className="section-title">Languages Known <small>(Programming Languages)</small></h2>
+        <PedalRack items={languages} />
+      </section>
+
       <section id="skills" className="skills-patchbay">
         <h2 className="section-title">The Pedalboard <small>(Technical Tools)</small></h2>
-        <div className="pedal-rack">
-          {skills.map((skill, i) => (
-            <div key={i} className="pedal" style={{ '--pedal-color': ['#ff5f5f', '#4d96ff', '#ffb830', '#1DB954', '#b91d73', '#1db9b9'][i % 6] }}>
-              <div className="pedal-head">
-                <span className="pedal-type">{i % 2 === 0 ? 'Fuzz' : 'Delay'}</span>
-                <div className="status-light"></div>
-              </div>
-              <div className="pedal-body">
-                <div className="pedal-knob-row">
-                  <div className="tiny-knob"></div>
-                  <div className="tiny-knob"></div>
-                </div>
-                <h3 className="pedal-name">{skill.name}</h3>
-              </div>
-              <div className="pedal-foot">
-                <div className="stomp-switch"></div>
-              </div>
-            </div>
-          ))}
-        </div>
+        <PedalRack items={tools} />
       </section>
 
       <section id="about" className="artist-bio">
