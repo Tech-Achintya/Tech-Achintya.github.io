@@ -232,6 +232,44 @@
   font-size: 14px;
 }
 
+/* Languages */
+.languages-section {
+  margin-bottom: 80px;
+}
+
+.language-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 16px;
+}
+
+.language-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px 22px;
+  background: var(--surface-color);
+  border: var(--border-thick);
+  border-left: 8px solid var(--accent-primary);
+  border-radius: 8px;
+  box-shadow: 4px 4px 0 var(--text-main);
+}
+
+.language-name {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.language-index {
+  font-family: monospace;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
 /* Pedalboard */
 .pedal-rack {
   display: grid;

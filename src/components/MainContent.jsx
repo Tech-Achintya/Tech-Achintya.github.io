@@ -71,6 +71,7 @@ const languages = [
   { name: "Java" },
   { name: "JavaScript" },
   { name: "TypeScript" },
+  { name: "Python" },
   { name: "C" },
   { name: "C++" },
   { name: "SQL" },
@@ -292,9 +293,16 @@ const MainContent = () => {
         </div>
       </section>
 
-      <section id="languages" className="skills-patchbay">
+      <section id="languages" className="languages-section">
         <h2 className="section-title">Languages Known <small>(Programming Languages)</small></h2>
-        <PedalRack items={languages} />
+        <div className="language-grid">
+          {languages.map((language, i) => (
+            <div key={language.name} className="language-card">
+              <span className="language-name">{language.name}</span>
+              <span className="language-index">{String(i + 1).padStart(2, '0')}</span>
+            </div>
+          ))}
+        </div>
       </section>
 
       <section id="skills" className="skills-patchbay">
